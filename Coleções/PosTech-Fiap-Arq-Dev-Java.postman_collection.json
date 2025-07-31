@@ -1,32 +1,29 @@
 {
 	"info": {
-		"_postman_id": "23ec8291-ba78-4435-8a07-9e90c619db91",
+		"_postman_id": "94f37095-91cf-4f3a-97f0-aa157551f39c",
 		"name": "PosTech-Fiap-Arq-Dev-Java",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "44126112",
-		"_collection_link": "https://rayssecutrim.postman.co/workspace/Raysse-Cutrim's-Workspace~cb98d9a5-ef9f-4295-8fd7-f62edd8ca6e3/collection/44126112-23ec8291-ba78-4435-8a07-9e90c619db91?action=share&source=collection_link&creator=44126112"
+		"_exporter_id": "14131416",
+		"_collection_link": "https://interstellar-satellite-368322.postman.co/workspace/FIAP~1209769b-6eb2-4429-9e2f-a01394233f0e/collection/14131416-94f37095-91cf-4f3a-97f0-aa157551f39c?action=share&source=collection_link&creator=14131416"
 	},
 	"item": [
 		{
-			"name": "ms-login",
+			"name": "ms-restaurante",
 			"item": [
 				{
-					"name": "Realizar login",
+					"name": "Tipo Cozinha - Inserir",
 					"request": {
 						"method": "POST",
 						"header": [
 							{
-								"key": "accept",
-								"value": "application/json"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json"
+								"key": "Authorization",
+								"value": "Bearer {{jwt_admin}}",
+								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"usuario\": \"teste2657\",\n  \"senha\": \"123\"\n}",
+							"raw": "{\r\n    \"codigo\" : 6,\r\n    \"descricao\" : \"TEAAAAAAAASTE\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -34,165 +31,46 @@
 							}
 						},
 						"url": {
-							"raw": "{{HOST_MS_LOGIN}}/v1/auth/login",
+							"raw": "{{HOST_MS_RESTAURANTE}}/v1/tipo-cozinha",
 							"host": [
-								"{{HOST_MS_LOGIN}}"
+								"{{HOST_MS_RESTAURANTE}}"
 							],
 							"path": [
 								"v1",
-								"auth",
-								"login"
+								"tipo-cozinha"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Atualizar senha do usuário",
-					"request": {
-						"method": "PATCH",
-						"header": [
-							{
-								"key": "accept",
-								"value": "*/*"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"senhaAntiga\": \"novaSenha123\",\n  \"senhaNova\": \"123\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{HOST_MS_LOGIN}}/v1/login/teste2657",
-							"host": [
-								"{{HOST_MS_LOGIN}}"
-							],
-							"path": [
-								"v1",
-								"login",
-								"teste2657"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Deletar Login",
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "accept",
-								"value": "application/json"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"url": {
-							"raw": "{{HOST_MS_LOGIN}}/v1/login/teste2657",
-							"host": [
-								"{{HOST_MS_LOGIN}}"
-							],
-							"path": [
-								"v1",
-								"login",
-								"teste2657"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Cadastrar Login",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"usuario\" : \"te26157\",\r\n    \"senha\" : \"sen1a123\",\r\n    \"documento\" : \"95700110\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{HOST_MS_LOGIN}}/v1/auth/registration",
-							"host": [
-								"{{HOST_MS_LOGIN}}"
-							],
-							"path": [
-								"v1",
-								"auth",
-								"registration"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Verificar Status",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{HOST_MS_LOGIN}}/v1/auth/login?usuario=teste2657",
-							"host": [
-								"{{HOST_MS_LOGIN}}"
-							],
-							"path": [
-								"v1",
-								"auth",
-								"login"
-							],
-							"query": [
-								{
-									"key": "usuario",
-									"value": "teste2657"
-								}
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "ms-usuario",
-			"item": [
-				{
-					"name": "Cliente - Buscar",
+					"name": "Tipo Cozinha - Buscar",
 					"request": {
 						"method": "GET",
 						"header": [
 							{
-								"key": "accept",
-								"value": "application/json"
+								"key": "Authorization",
+								"value": "Bearer {{jwt_admin}}",
+								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "{{HOST_MS_USUARIO}}/v1/clientes?usuario=mariaolive",
+							"raw": "{{HOST_MS_RESTAURANTE}}/v1/tipo-cozinha?codigo=6&descricao=AAAAAAA",
 							"host": [
-								"{{HOST_MS_USUARIO}}"
+								"{{HOST_MS_RESTAURANTE}}"
 							],
 							"path": [
 								"v1",
-								"clientes"
+								"tipo-cozinha"
 							],
 							"query": [
 								{
-									"key": "usuario",
-									"value": "mariaolive"
+									"key": "codigo",
+									"value": "6"
+								},
+								{
+									"key": "descricao",
+									"value": "AAAAAAA"
 								}
 							]
 						}
@@ -200,58 +78,19 @@
 					"response": []
 				},
 				{
-					"name": "Cliente - Inserir",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "accept",
-								"value": "application/json"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"nome\": \"Carlos Alberto\",\n  \"email\": \"carlos.a@email.com\",\n  \"endereco\": \"Travessa do Sol, 12\",\n  \"telefone\": \"+55 41 98888-0000\",\n  \"usuario\": \"carlosal\"\n}\n",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{HOST_MS_USUARIO}}/v1/clientes",
-							"host": [
-								"{{HOST_MS_USUARIO}}"
-							],
-							"path": [
-								"v1",
-								"clientes"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Cliente - Atualizar",
+					"name": "Tipo Cozinha - Atualizar",
 					"request": {
 						"method": "PATCH",
 						"header": [
 							{
-								"key": "accept",
-								"value": "application/json"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json"
+								"key": "Authorization",
+								"value": "Bearer {{jwt_admin}}",
+								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"nome\": \"Fernanda Souza Brabona\",\n    \"email\": \"fernanda.souza@email.com\",\n    \"endereco\": \"Alameda Santos, 350\",\n    \"telefone\": \"+55 11 95555-7890\"\n}",
+							"raw": "{\r\n    \"descricao\" : \"AAAAAAA           \"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -259,38 +98,198 @@
 							}
 						},
 						"url": {
-							"raw": "{{HOST_MS_USUARIO}}/v1/clientes/mariaolive",
+							"raw": "{{HOST_MS_RESTAURANTE}}/v1/tipo-cozinha/6",
 							"host": [
-								"{{HOST_MS_USUARIO}}"
+								"{{HOST_MS_RESTAURANTE}}"
 							],
 							"path": [
 								"v1",
-								"clientes",
-								"mariaolive"
+								"tipo-cozinha",
+								"6"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Cliente - Deletar",
+					"name": "Tipo Cozinha - Deletar",
 					"request": {
 						"method": "DELETE",
 						"header": [
 							{
-								"key": "accept",
-								"value": "*/*"
+								"key": "Authorization",
+								"value": "Bearer {{jwt_admin}}",
+								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "{{HOST_MS_USUARIO}}/v1/clientes/saborcaseiro",
+							"raw": "{{HOST_MS_RESTAURANTE}}/v1/tipo-cozinha/6",
 							"host": [
-								"{{HOST_MS_USUARIO}}"
+								"{{HOST_MS_RESTAURANTE}}"
 							],
 							"path": [
 								"v1",
-								"clientes",
-								"saborcaseiro"
+								"tipo-cozinha",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Item Cardápio - Inserir",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt_admin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Frango Xadrez\",\r\n  \"descricao\": \"Cubos de frango salteados com pimentões, cebola e molho shoyu.\",\r\n  \"preco\": 38.00,\r\n  \"disponibilidadeConsumoLocal\": false,\r\n  \"foto\": \"/imagens/cardapio/frango-xadrez.jpg\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST_MS_RESTAURANTE}}/v1/item-cardapio",
+							"host": [
+								"{{HOST_MS_RESTAURANTE}}"
+							],
+							"path": [
+								"v1",
+								"item-cardapio"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Item Cardápio - Buscar",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt_admin}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{HOST_MS_RESTAURANTE}}/v1/item-cardapio?nome=B&disponibilidadeConsumoLocal=true",
+							"host": [
+								"{{HOST_MS_RESTAURANTE}}"
+							],
+							"path": [
+								"v1",
+								"item-cardapio"
+							],
+							"query": [
+								{
+									"key": "nome",
+									"value": "B"
+								},
+								{
+									"key": "disponibilidadeConsumoLocal",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Item Cardápio - Atualizar",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt_admin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Bacalhau à Gomes de Sá\",\r\n    \"descricao\": \"Prato tradicional português feito com bacalhau, batatas, cebolas, ovos e azeitonas.\",\r\n    \"preco\": 70.0,\r\n    \"disponibilidadeConsumoLocal\": true,\r\n    \"foto\": \"/imagens/cardapio/bacalhau-gomes-sa.jpg\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST_MS_RESTAURANTE}}/v1/item-cardapio/1",
+							"host": [
+								"{{HOST_MS_RESTAURANTE}}"
+							],
+							"path": [
+								"v1",
+								"item-cardapio",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Item Cardápio - Deletar",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt_admin}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{HOST_MS_RESTAURANTE}}/v1/item-cardapio/1",
+							"host": [
+								"{{HOST_MS_RESTAURANTE}}"
+							],
+							"path": [
+								"v1",
+								"item-cardapio",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Restaurante - Inserir",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt_admin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Churrascaria do Zé\",\r\n  \"tipoCozinha\": \"BRASILEIRA\",\r\n  \"horarioFuncionamento\": \"11:00 - 22:00\",\r\n  \"endereco\": {\r\n    \"street\": \"Rua das Acácias\",\r\n    \"number\": \"123\",\r\n    \"complement\": \"Sala 5\",\r\n    \"city\": \"Campinas\",\r\n    \"state\": \"SP\"\r\n  }\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST_MS_RESTAURANTE}}/v1/restaurantes",
+							"host": [
+								"{{HOST_MS_RESTAURANTE}}"
+							],
+							"path": [
+								"v1",
+								"restaurantes"
 							]
 						}
 					},
@@ -302,14 +301,15 @@
 						"method": "GET",
 						"header": [
 							{
-								"key": "accept",
-								"value": "application/json"
+								"key": "Authorization",
+								"value": "Bearer {{jwt_admin}}",
+								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "{{HOST_MS_USUARIO}}/v1/restaurantes?usuario=fernandinha1",
+							"raw": "{{HOST_MS_RESTAURANTE}}/v1/restaurantes?nome=Churrascaria&usuarioId=1&horarioFuncionamento=10:00 - 22:00",
 							"host": [
-								"{{HOST_MS_USUARIO}}"
+								"{{HOST_MS_RESTAURANTE}}"
 							],
 							"path": [
 								"v1",
@@ -317,8 +317,16 @@
 							],
 							"query": [
 								{
-									"key": "usuario",
-									"value": "fernandinha1"
+									"key": "nome",
+									"value": "Churrascaria"
+								},
+								{
+									"key": "usuarioId",
+									"value": "1"
+								},
+								{
+									"key": "horarioFuncionamento",
+									"value": "10:00 - 22:00"
 								}
 							]
 						}
@@ -326,36 +334,38 @@
 					"response": []
 				},
 				{
-					"name": "Restaurante- Inserir",
+					"name": "Restaurante - BuscarPorId",
 					"request": {
-						"method": "POST",
+						"method": "GET",
 						"header": [
 							{
-								"key": "accept",
-								"value": "application/json"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json"
+								"key": "Authorization",
+								"value": "Bearer {{jwt_admin}}",
+								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"nome\": \"Fernanda Souza\",\n  \"email\": \"fernanda.souza@email.com\",\n  \"endereco\": \"Alameda Santos, 350\",\n  \"telefone\": \"+55 11 95555-7890\",\n  \"usuario\": \"fernandinha1\"\n}\n",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
 						"url": {
-							"raw": "{{HOST_MS_USUARIO}}/v1/restaurantes",
+							"raw": "{{HOST_MS_RESTAURANTE}}/v1/restaurantes?nome=Churrascaria&usuarioId=1&horarioFuncionamento=10:00 - 22:00",
 							"host": [
-								"{{HOST_MS_USUARIO}}"
+								"{{HOST_MS_RESTAURANTE}}"
 							],
 							"path": [
 								"v1",
 								"restaurantes"
+							],
+							"query": [
+								{
+									"key": "nome",
+									"value": "Churrascaria"
+								},
+								{
+									"key": "usuarioId",
+									"value": "1"
+								},
+								{
+									"key": "horarioFuncionamento",
+									"value": "10:00 - 22:00"
+								}
 							]
 						}
 					},
@@ -367,17 +377,14 @@
 						"method": "PATCH",
 						"header": [
 							{
-								"key": "accept",
-								"value": "application/json"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json"
+								"key": "Authorization",
+								"value": "Bearer {{jwt_admin}}",
+								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"nome\": \"Fernanda Souza Brabona12\",\n    \"email\": \"fernanda.souza@email.com\",\n    \"endereco\": \"Alameda Santos, 350\",\n    \"telefone\": \"+55 11 95555-7890\"\n}",
+							"raw": "{\r\n    \"nome\": \"Churrascaria do Zé\",\r\n    \"endereco\": {\r\n        \"street\": \"Rua das Acácias\",\r\n        \"number\": \"123\",\r\n        \"complement\": \"Sala 5\",\r\n        \"city\": \"Campinas\",\r\n        \"state\": \"SP\"\r\n    },\r\n    \"tipoCozinha\": \"BRASILEIRA\",\r\n    \"horarioFuncionamento\": \"10:00 - 22:00\"\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -385,14 +392,14 @@
 							}
 						},
 						"url": {
-							"raw": "{{HOST_MS_USUARIO}}/v1/restaurantes/fernandinha1",
+							"raw": "{{HOST_MS_RESTAURANTE}}/v1/restaurantes/1",
 							"host": [
-								"{{HOST_MS_USUARIO}}"
+								"{{HOST_MS_RESTAURANTE}}"
 							],
 							"path": [
 								"v1",
 								"restaurantes",
-								"fernandinha1"
+								"1"
 							]
 						}
 					},
@@ -404,19 +411,20 @@
 						"method": "DELETE",
 						"header": [
 							{
-								"key": "accept",
-								"value": "*/*"
+								"key": "Authorization",
+								"value": "Bearer {{jwt_admin}}",
+								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "{{HOST_MS_USUARIO}}/v1/restaurantes/cantinaitaliana",
+							"raw": "{{HOST_MS_RESTAURANTE}}/v1/restaurantes/f47ac10b-58cc-4372-a567-0e02b2c3d479",
 							"host": [
-								"{{HOST_MS_USUARIO}}"
+								"{{HOST_MS_RESTAURANTE}}"
 							],
 							"path": [
 								"v1",
 								"restaurantes",
-								"cantinaitaliana"
+								"f47ac10b-58cc-4372-a567-0e02b2c3d479"
 							]
 						}
 					},
@@ -425,1843 +433,299 @@
 			]
 		},
 		{
-			"name": "Cenários de Testes Manuais",
+			"name": "AS ADMIN",
 			"item": [
 				{
-					"name": "Cadastro Login",
-					"item": [
+					"name": "[ADMIN] Login",
+					"event": [
 						{
-							"name": "Criar Login para usuário Cliente",
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"usuario\" : \"usuarioCliente\",\r\n    \"senha\" : \"senha123\",\r\n    \"documento\" : \"52117968023\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{HOST_MS_LOGIN}}/v1/auth/registration",
-									"host": [
-										"{{HOST_MS_LOGIN}}"
-									],
-									"path": [
-										"v1",
-										"auth",
-										"registration"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Criar Login para usuário Parceiro",
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"usuario\" : \"usuarioParceiro\",\r\n    \"senha\" : \"senha123\",\r\n    \"documento\" : \"20858306000190\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{HOST_MS_LOGIN}}/v1/auth/registration",
-									"host": [
-										"{{HOST_MS_LOGIN}}"
-									],
-									"path": [
-										"v1",
-										"auth",
-										"registration"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Tentar criar login já existente",
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"usuario\" : \"usuarioCliente\",\r\n    \"senha\" : \"123321\",\r\n    \"documento\" : \"52117968023\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{HOST_MS_LOGIN}}/v1/auth/registration",
-									"host": [
-										"{{HOST_MS_LOGIN}}"
-									],
-									"path": [
-										"v1",
-										"auth",
-										"registration"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Tentar criar login com campos vazios",
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"usuario\" : \" \",\r\n    \"senha\" : \" \",\r\n    \"documento\" : \" \"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{HOST_MS_LOGIN}}/v1/auth/registration",
-									"host": [
-										"{{HOST_MS_LOGIN}}"
-									],
-									"path": [
-										"v1",
-										"auth",
-										"registration"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Tentar criar login com documento inválido",
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"usuario\" : \"te26157\",\r\n    \"senha\" : \"sen1a123\",\r\n    \"documento\" : \"95700110\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{HOST_MS_LOGIN}}/v1/auth/registration",
-									"host": [
-										"{{HOST_MS_LOGIN}}"
-									],
-									"path": [
-										"v1",
-										"auth",
-										"registration"
-									]
-								}
-							},
-							"response": []
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"pm.environment.set(\"jwt_admin\", jsonData.token);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
 						}
-					]
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"admin\",\n    \"password\": \"Password1@\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:8080/login",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
 				},
 				{
-					"name": "Cadastro Usuário",
-					"item": [
-						{
-							"name": "Criar usuário cliente com todos os campos preenchidos",
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "accept",
-										"value": "application/json"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n  \"nome\": \"Maria da Silva Costa\",\n  \"email\": \"maria.da.silva.costa@email.com\",\n  \"endereco\": \"Travessa do Sol, 12\",\n  \"telefone\": \"+55 41 99998-0000\",\n  \"usuario\": \"usuarioCliente\"\n}\n",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{HOST_MS_USUARIO}}/v1/clientes",
-									"host": [
-										"{{HOST_MS_USUARIO}}"
-									],
-									"path": [
-										"v1",
-										"clientes"
-									]
+					"name": "[ADMIN] Create Customer",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_admin}}",
+									"type": "string"
 								}
-							},
-							"response": []
+							]
 						},
-						{
-							"name": "Criar usuário parceiro com todos os campos preenchidos",
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "accept",
-										"value": "application/json"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n  \"nome\": \"Joao da Silva\",\n  \"email\": \"joao.da.silva@email.com\",\n  \"endereco\": \"Travessa do Sol, 1882\",\n  \"telefone\": \"+55 41 97777-0000\",\n  \"usuario\": \"usuarioParceiro\"\n}\n",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{HOST_MS_USUARIO}}/v1/restaurantes",
-									"host": [
-										"{{HOST_MS_USUARIO}}"
-									],
-									"path": [
-										"v1",
-										"restaurantes"
-									]
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"John Doe\",\n    \"email\": \"john@doe.com.br\",\n    \"username\": \"johnny\",\n    \"password\": \"Password1@\",\n    \"role\": \"USER\",\n    \"address\": {\n        \"street\": \"Baker Street\",\n        \"number\": \"221B\",\n        \"complement\": \"\",\n        \"city\": \"London\",\n        \"state\": \"BL\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
 								}
-							},
-							"response": []
+							}
 						},
-						{
-							"name": "Tentar criar usuário cliente com e-mail existente",
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "accept",
-										"value": "application/json"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n  \"nome\": \"Carlos Alberto\",\n  \"email\": \"maria.da.silva.costa@email.com\",\n  \"endereco\": \"Travessa do Sol, 12\",\n  \"telefone\": \"+55 41 98888-0000\",\n  \"usuario\": \"carlosal\"\n}\n",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{HOST_MS_USUARIO}}/v1/clientes",
-									"host": [
-										"{{HOST_MS_USUARIO}}"
-									],
-									"path": [
-										"v1",
-										"clientes"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Tentar criar usuário parceiro com e-mail existente",
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "accept",
-										"value": "application/json"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n  \"nome\": \"Carlos Alberto\",\n  \"email\": \"joao.da.silva@email.com\",\n  \"endereco\": \"Travessa do Sol, 12\",\n  \"telefone\": \"+55 41 98888-0000\",\n  \"usuario\": \"carlosal\"\n}\n",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{HOST_MS_USUARIO}}/v1/restaurantes",
-									"host": [
-										"{{HOST_MS_USUARIO}}"
-									],
-									"path": [
-										"v1",
-										"restaurantes"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Tentar criar usuário cliente com telefone existente",
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "accept",
-										"value": "application/json"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n  \"nome\": \"Carlos Alberto\",\n  \"email\": \"joao.da.sa@email.com\",\n  \"endereco\": \"Travessa do Sol, 12\",\n  \"telefone\": \"+55 41 99998-0000\",\n  \"usuario\": \"carlosal\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{HOST_MS_USUARIO}}/v1/clientes",
-									"host": [
-										"{{HOST_MS_USUARIO}}"
-									],
-									"path": [
-										"v1",
-										"clientes"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Tentar criar usuário parceiro com telefone existente",
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "accept",
-										"value": "application/json"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n  \"nome\": \"Carlos Alberto\",\n  \"email\": \"joao.da.sa@email.com\",\n  \"endereco\": \"Travessa do Sol, 12\",\n  \"telefone\": \"+55 41 97777-0000\",\n  \"usuario\": \"carlosal\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{HOST_MS_USUARIO}}/v1/restaurantes",
-									"host": [
-										"{{HOST_MS_USUARIO}}"
-									],
-									"path": [
-										"v1",
-										"restaurantes"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Tentar criar usuário cliente sem preencher os campos",
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "accept",
-										"value": "application/json"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n  \"nome\": \" \",\n  \"email\": \"maria.da.silva.costa@email.com\",\n  \"endereco\": \" \",\n  \"telefone\": \" \",\n  \"usuario\": \" \"\n}\n",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{HOST_MS_USUARIO}}/v1/clientes",
-									"host": [
-										"{{HOST_MS_USUARIO}}"
-									],
-									"path": [
-										"v1",
-										"clientes"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Tentar criar usuário parceiro sem preencher os campos",
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "accept",
-										"value": "application/json"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n  \"nome\": \" \",\n  \"email\": \"carlo.a@email.com\",\n  \"endereco\": \" \",\n  \"telefone\": \" \",\n  \"usuario\": \" \"\n}\n",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{HOST_MS_USUARIO}}/v1/restaurantes",
-									"host": [
-										"{{HOST_MS_USUARIO}}"
-									],
-									"path": [
-										"v1",
-										"restaurantes"
-									]
-								}
-							},
-							"response": []
+						"url": {
+							"raw": "127.0.0.1:8080/users",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"users"
+							]
 						}
-					]
+					},
+					"response": []
 				},
 				{
-					"name": "Alteração Login",
-					"item": [
-						{
-							"name": "Alterar senha do usuário cliente",
-							"request": {
-								"method": "PATCH",
-								"header": [
-									{
-										"key": "accept",
-										"value": "*/*"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n  \"senhaAntiga\": \"senha123\",\n  \"senhaNova\": \"1234321\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{HOST_MS_LOGIN}}/v1/login/usuarioCliente",
-									"host": [
-										"{{HOST_MS_LOGIN}}"
-									],
-									"path": [
-										"v1",
-										"login",
-										"usuarioCliente"
-									]
+					"name": "[ADMIN] Create Admin",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_admin}}",
+									"type": "string"
 								}
-							},
-							"response": []
+							]
 						},
-						{
-							"name": "Alterar senha do usuário parceiro",
-							"request": {
-								"method": "PATCH",
-								"header": [
-									{
-										"key": "accept",
-										"value": "*/*"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n  \"senhaAntiga\": \"senha123\",\n  \"senhaNova\": \"1234321\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{HOST_MS_LOGIN}}/v1/login/usuarioParceiro",
-									"host": [
-										"{{HOST_MS_LOGIN}}"
-									],
-									"path": [
-										"v1",
-										"login",
-										"usuarioParceiro"
-									]
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Pablo Escobar\",\n    \"email\": \"admin@admin.com.br\",\n    \"username\": \"iamadmin\",\n    \"password\": \"Password1@\",\n    \"role\": \"ADMIN\",\n    \"address\": {\n        \"street\": \"Calle del Jefe\",\n        \"number\": \"777\",\n        \"city\": \"Bogotá\",\n        \"state\": \"CO\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
 								}
-							},
-							"response": []
+							}
 						},
-						{
-							"name": "Alterar senha do usuário sem preencher os campos",
-							"request": {
-								"method": "PATCH",
-								"header": [
-									{
-										"key": "accept",
-										"value": "*/*"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n  \"senhaAntiga\": \" \",\n  \"senhaNova\": \" \"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{HOST_MS_LOGIN}}/v1/login/usuarioParceiro",
-									"host": [
-										"{{HOST_MS_LOGIN}}"
-									],
-									"path": [
-										"v1",
-										"login",
-										"usuarioParceiro"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Tentar alterar senha do usuário com a mesma senha já cadastrada",
-							"request": {
-								"method": "PATCH",
-								"header": [
-									{
-										"key": "accept",
-										"value": "*/*"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n  \"senhaAntiga\": \"senha123\",\n  \"senhaNova\": \"senha123\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{HOST_MS_LOGIN}}/v1/login/usuarioParceiro",
-									"host": [
-										"{{HOST_MS_LOGIN}}"
-									],
-									"path": [
-										"v1",
-										"login",
-										"usuarioParceiro"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Tentar alterar senha não enviando o usuário",
-							"request": {
-								"method": "PATCH",
-								"header": [
-									{
-										"key": "accept",
-										"value": "*/*"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n  \"senhaAntiga\": \"senha123\",\n  \"senhaNova\": \"123\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{HOST_MS_LOGIN}}/v1/login/",
-									"host": [
-										"{{HOST_MS_LOGIN}}"
-									],
-									"path": [
-										"v1",
-										"login",
-										""
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Tentar alterar senha enviando usuário inexistente",
-							"request": {
-								"method": "PATCH",
-								"header": [
-									{
-										"key": "accept",
-										"value": "*/*"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n  \"senhaAntiga\": \"senha123\",\n  \"senhaNova\": \"123\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{HOST_MS_LOGIN}}/v1/login/usuarioCliente",
-									"host": [
-										"{{HOST_MS_LOGIN}}"
-									],
-									"path": [
-										"v1",
-										"login",
-										"usuarioCliente"
-									]
-								}
-							},
-							"response": []
+						"url": {
+							"raw": "127.0.0.1:8080/users",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"users"
+							]
 						}
-					]
+					},
+					"response": []
 				},
 				{
-					"name": "Alteração Usuário",
-					"item": [
-						{
-							"name": "Alterar nome, e-mail, telefone e endereço do usuário cliente",
-							"request": {
-								"method": "PATCH",
-								"header": [
-									{
-										"key": "accept",
-										"value": "application/json"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"nome\": \"Fernanda Souza Brabona\",\n    \"email\": \"fernanda.souza@email.com\",\n    \"endereco\": \"Alameda Santos, 350\",\n    \"telefone\": \"+55 11 95555-7890\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{HOST_MS_USUARIO}}/v1/clientes/usuarioCliente",
-									"host": [
-										"{{HOST_MS_USUARIO}}"
-									],
-									"path": [
-										"v1",
-										"clientes",
-										"usuarioCliente"
-									]
+					"name": "[ADMIN] Get All Users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_admin}}",
+									"type": "string"
 								}
-							},
-							"response": []
+							]
 						},
-						{
-							"name": "Alterar nome, e-mail, telefone e endereço do usuário parceiro",
-							"request": {
-								"method": "PATCH",
-								"header": [
-									{
-										"key": "accept",
-										"value": "application/json"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"nome\": \"PauloSouza Brabona\",\n    \"email\": \"paulosouza@email.com\",\n    \"endereco\": \"Alameda Santos, 350\",\n    \"telefone\": \"+55 11 95555-7890\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:8080/users?page=0&size=10",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
 								},
-								"url": {
-									"raw": "{{HOST_MS_USUARIO}}/v1/restaurantes/usuarioParceiro",
-									"host": [
-										"{{HOST_MS_USUARIO}}"
-									],
-									"path": [
-										"v1",
-										"restaurantes",
-										"usuarioParceiro"
-									]
+								{
+									"key": "size",
+									"value": "10"
 								}
-							},
-							"response": []
-						},
-						{
-							"name": "Tentar alterar usuário cliente inexistente",
-							"request": {
-								"method": "PATCH",
-								"header": [
-									{
-										"key": "accept",
-										"value": "application/json"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"nome\": \"Fernanda Souza Brabona\",\n    \"email\": \"fernanda.souza@email.com\",\n    \"endereco\": \"Alameda Santos, 350\",\n    \"telefone\": \"+55 11 95555-7890\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{HOST_MS_USUARIO}}/v1/clientes/mariaolive",
-									"host": [
-										"{{HOST_MS_USUARIO}}"
-									],
-									"path": [
-										"v1",
-										"clientes",
-										"mariaolive"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Tentar alterar usuário parceiro inexistente",
-							"request": {
-								"method": "PATCH",
-								"header": [
-									{
-										"key": "accept",
-										"value": "application/json"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"nome\": \"Fernanda Souza Brabona\",\n    \"email\": \"fernanda.souza@email.com\",\n    \"endereco\": \"Alameda Santos, 350\",\n    \"telefone\": \"+55 11 95555-7890\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{HOST_MS_USUARIO}}/v1/restaurantes/mariaolive",
-									"host": [
-										"{{HOST_MS_USUARIO}}"
-									],
-									"path": [
-										"v1",
-										"restaurantes",
-										"mariaolive"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Tentar alterar usuário enviando os campos em branco",
-							"request": {
-								"method": "PATCH",
-								"header": [
-									{
-										"key": "accept",
-										"value": "application/json"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"nome\": \"\",\n    \"email\": \"fernanda.souza@email.com\",\n    \"endereco\": \"\",\n    \"telefone\": \"\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{HOST_MS_USUARIO}}/v1/clientes/usuarioCliente",
-									"host": [
-										"{{HOST_MS_USUARIO}}"
-									],
-									"path": [
-										"v1",
-										"clientes",
-										"usuarioCliente"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Tentar alterar usuário cliente com os mesmos dados cadastrados",
-							"request": {
-								"method": "PATCH",
-								"header": [
-									{
-										"key": "accept",
-										"value": "application/json"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n  \"nome\": \"Maria da Silva Costa\",\n  \"email\": \"maria.da.silva.costa@email.com\",\n  \"endereco\": \"Travessa do Sol, 12\",\n  \"telefone\": \"+55 41 99998-0000\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{HOST_MS_USUARIO}}/v1/clientes/usuarioCliente",
-									"host": [
-										"{{HOST_MS_USUARIO}}"
-									],
-									"path": [
-										"v1",
-										"clientes",
-										"usuarioCliente"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Tentar alterar usuário parceiro com os mesmos dados cadastrados",
-							"request": {
-								"method": "PATCH",
-								"header": [
-									{
-										"key": "accept",
-										"value": "application/json"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n  \"nome\": \"Joao da Silva\",\n  \"email\": \"joao.da.silva@email.com\",\n  \"endereco\": \"Travessa do Sol, 1882\",\n  \"telefone\": \"+55 41 97777-0000\"\n}\n",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{HOST_MS_USUARIO}}/v1/restaurantes/usuarioParceiro",
-									"host": [
-										"{{HOST_MS_USUARIO}}"
-									],
-									"path": [
-										"v1",
-										"restaurantes",
-										"usuarioParceiro"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Tentar alterar usuário cliente enviando o login com espaços",
-							"request": {
-								"method": "PATCH",
-								"header": [
-									{
-										"key": "accept",
-										"value": "application/json"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"nome\": \"Fernanda Souza Brabona\",\n    \"email\": \"fernanda.souza@email.com\",\n    \"endereco\": \"Alameda Santos, 350\",\n    \"telefone\": \"+55 11 95555-7890\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{HOST_MS_USUARIO}}/v1/clientes/",
-									"host": [
-										"{{HOST_MS_USUARIO}}"
-									],
-									"path": [
-										"v1",
-										"clientes",
-										""
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Tentar alterar usuário parceiro enviando o login com epaços",
-							"request": {
-								"method": "PATCH",
-								"header": [
-									{
-										"key": "accept",
-										"value": "application/json"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"nome\": \"Fernanda Souza Brabona\",\n    \"email\": \"fernanda.souza@email.com\",\n    \"endereco\": \"Alameda Santos, 350\",\n    \"telefone\": \"+55 11 95555-7890\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{HOST_MS_USUARIO}}/v1/restaurantes/ ",
-									"host": [
-										"{{HOST_MS_USUARIO}}"
-									],
-									"path": [
-										"v1",
-										"restaurantes",
-										" "
-									]
-								}
-							},
-							"response": []
+							]
 						}
-					]
+					},
+					"response": []
 				},
 				{
-					"name": "Consulta Login",
-					"item": [
-						{
-							"name": "Realizar login com usuário cliente",
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "accept",
-										"value": "application/json"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n  \"usuario\": \"usuarioCliente\",\n  \"senha\": \"1234321\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{HOST_MS_LOGIN}}/v1/auth/login",
-									"host": [
-										"{{HOST_MS_LOGIN}}"
-									],
-									"path": [
-										"v1",
-										"auth",
-										"login"
-									]
+					"name": "[ADMIN] Get User From Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_admin}}",
+									"type": "string"
 								}
-							},
-							"response": []
+							]
 						},
-						{
-							"name": "Realizar login com usuário parceiro",
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "accept",
-										"value": "application/json"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n  \"usuario\": \"usuarioParceiro\",\n  \"senha\": \"1234321\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{HOST_MS_LOGIN}}/v1/auth/login",
-									"host": [
-										"{{HOST_MS_LOGIN}}"
-									],
-									"path": [
-										"v1",
-										"auth",
-										"login"
-									]
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:8080/users/:id",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
 								}
-							},
-							"response": []
-						},
-						{
-							"name": "Tentar realizar login enviando usuário inexistente",
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "accept",
-										"value": "application/json"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n  \"usuario\": \"teste2657\",\n  \"senha\": \"123\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{HOST_MS_LOGIN}}/v1/auth/login",
-									"host": [
-										"{{HOST_MS_LOGIN}}"
-									],
-									"path": [
-										"v1",
-										"auth",
-										"login"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Tentar realizar login enviando senha incorreta",
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "accept",
-										"value": "application/json"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n  \"usuario\": \"usuarioCliente\",\n  \"senha\": \"123\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{HOST_MS_LOGIN}}/v1/auth/login",
-									"host": [
-										"{{HOST_MS_LOGIN}}"
-									],
-									"path": [
-										"v1",
-										"auth",
-										"login"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Tentar realizar login enviando usuário em branco",
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "accept",
-										"value": "application/json"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n  \"usuario\": \" \",\n  \"senha\": \"1234321\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{HOST_MS_LOGIN}}/v1/auth/login",
-									"host": [
-										"{{HOST_MS_LOGIN}}"
-									],
-									"path": [
-										"v1",
-										"auth",
-										"login"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Tentar realizar login enviando senha em branco",
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "accept",
-										"value": "application/json"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n  \"usuario\": \"usuarioCliente\",\n  \"senha\": \" \"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{HOST_MS_LOGIN}}/v1/auth/login",
-									"host": [
-										"{{HOST_MS_LOGIN}}"
-									],
-									"path": [
-										"v1",
-										"auth",
-										"login"
-									]
-								}
-							},
-							"response": []
+							]
 						}
-					]
+					},
+					"response": []
 				},
 				{
-					"name": "Consulta Status",
-					"item": [
-						{
-							"name": "Realizar consulta do status do usuário cliente",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{HOST_MS_LOGIN}}/v1/auth/login?usuario=usuarioCliente",
-									"host": [
-										"{{HOST_MS_LOGIN}}"
-									],
-									"path": [
-										"v1",
-										"auth",
-										"login"
-									],
-									"query": [
-										{
-											"key": "usuario",
-											"value": "usuarioCliente"
-										}
-									]
+					"name": "[USER] Update User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_admin}}",
+									"type": "string"
 								}
-							},
-							"response": []
+							]
 						},
-						{
-							"name": "Realizar consulta do status do usuário parceiro",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{HOST_MS_LOGIN}}/v1/auth/login?usuario=usuarioParceiro",
-									"host": [
-										"{{HOST_MS_LOGIN}}"
-									],
-									"path": [
-										"v1",
-										"auth",
-										"login"
-									],
-									"query": [
-										{
-											"key": "usuario",
-											"value": "usuarioParceiro"
-										}
-									]
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"2\",\n    \"name\": \"John DoeX\",\n    \"email\": \"john@doe.com.br\",\n    \"username\": \"johnny\",\n    \"password\": \"Password1@\",\n    \"role\": \"ADMIN\",\n    \"address\": {\n        \"street\": \"Baker Street\",\n        \"number\": \"221Bs\",\n        \"complement\": \"\",\n        \"city\": \"London\",\n        \"state\": \"BL\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
 								}
-							},
-							"response": []
+							}
 						},
-						{
-							"name": "Realizar consulta do status do usuário inexistente",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{HOST_MS_LOGIN}}/v1/auth/login?usuario=teste2657",
-									"host": [
-										"{{HOST_MS_LOGIN}}"
-									],
-									"path": [
-										"v1",
-										"auth",
-										"login"
-									],
-									"query": [
-										{
-											"key": "usuario",
-											"value": "teste2657"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Realizar consulta do status do usuário em branco",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{HOST_MS_LOGIN}}/v1/auth/login?usuario=",
-									"host": [
-										"{{HOST_MS_LOGIN}}"
-									],
-									"path": [
-										"v1",
-										"auth",
-										"login"
-									],
-									"query": [
-										{
-											"key": "usuario",
-											"value": ""
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Realizar consulta do status do usuário sem enviar o parametro",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{HOST_MS_LOGIN}}/v1/auth/login",
-									"host": [
-										"{{HOST_MS_LOGIN}}"
-									],
-									"path": [
-										"v1",
-										"auth",
-										"login"
-									],
-									"query": [
-										{
-											"key": "usuario",
-											"value": "",
-											"disabled": true
-										}
-									]
-								}
-							},
-							"response": []
+						"url": {
+							"raw": "127.0.0.1:8080/users",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"users"
+							]
 						}
-					]
+					},
+					"response": []
 				},
 				{
-					"name": "Consulta Usuário",
-					"item": [
-						{
-							"name": "Realizar consulta de usuário cliente",
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "accept",
-										"value": "application/json"
-									}
-								],
-								"url": {
-									"raw": "{{HOST_MS_USUARIO}}/v1/clientes?usuario=usuarioCliente",
-									"host": [
-										"{{HOST_MS_USUARIO}}"
-									],
-									"path": [
-										"v1",
-										"clientes"
-									],
-									"query": [
-										{
-											"key": "usuario",
-											"value": "usuarioCliente"
-										}
-									]
+					"name": "[USER] Delete User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_admin}}",
+									"type": "string"
 								}
-							},
-							"response": []
+							]
 						},
-						{
-							"name": "Realizar consulta de usuário parceiro",
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "accept",
-										"value": "application/json"
-									}
-								],
-								"url": {
-									"raw": "{{HOST_MS_USUARIO}}/v1/restaurantes?usuario=usuarioParceiro",
-									"host": [
-										"{{HOST_MS_USUARIO}}"
-									],
-									"path": [
-										"v1",
-										"restaurantes"
-									],
-									"query": [
-										{
-											"key": "usuario",
-											"value": "usuarioParceiro"
-										}
-									]
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 2,\n    \"name\": \"John Changed Name\",\n    \"email\": \"johnNewMail@uol.com.br\",\n    \"username\": \"johnny\",\n    \"password\": \"Password1@\",\n    \"role\": \"ADMIN\",\n    \"address\": \"Lolol Street, 51\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
 								}
-							},
-							"response": []
+							}
 						},
-						{
-							"name": "Tentar realizar consulta de usuário cliente inexistente",
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "accept",
-										"value": "application/json"
-									}
-								],
-								"url": {
-									"raw": "{{HOST_MS_USUARIO}}/v1/clientes?usuario=mariaolive",
-									"host": [
-										"{{HOST_MS_USUARIO}}"
-									],
-									"path": [
-										"v1",
-										"clientes"
-									],
-									"query": [
-										{
-											"key": "usuario",
-											"value": "mariaolive"
-										}
-									]
+						"url": {
+							"raw": "127.0.0.1:8080/users/:id",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "4"
 								}
-							},
-							"response": []
-						},
-						{
-							"name": "Tentar realizar consulta de usuário parceiro inexistente",
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "accept",
-										"value": "application/json"
-									}
-								],
-								"url": {
-									"raw": "{{HOST_MS_USUARIO}}/v1/restaurantes?usuario=mariaolive",
-									"host": [
-										"{{HOST_MS_USUARIO}}"
-									],
-									"path": [
-										"v1",
-										"restaurantes"
-									],
-									"query": [
-										{
-											"key": "usuario",
-											"value": "mariaolive"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Tentar realizar consulta enviando usuário cliente em branco",
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "accept",
-										"value": "application/json"
-									}
-								],
-								"url": {
-									"raw": "{{HOST_MS_USUARIO}}/v1/clientes?usuario= ",
-									"host": [
-										"{{HOST_MS_USUARIO}}"
-									],
-									"path": [
-										"v1",
-										"clientes"
-									],
-									"query": [
-										{
-											"key": "usuario",
-											"value": " "
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Tentar realizar consulta enviando usuário parceiro em branco",
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "accept",
-										"value": "application/json"
-									}
-								],
-								"url": {
-									"raw": "{{HOST_MS_USUARIO}}/v1/restaurantes?usuario= ",
-									"host": [
-										"{{HOST_MS_USUARIO}}"
-									],
-									"path": [
-										"v1",
-										"restaurantes"
-									],
-									"query": [
-										{
-											"key": "usuario",
-											"value": " "
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Tentar realizar consulta sem enviar o parametro",
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "accept",
-										"value": "application/json"
-									}
-								],
-								"url": {
-									"raw": "{{HOST_MS_USUARIO}}/v1/restaurantes",
-									"host": [
-										"{{HOST_MS_USUARIO}}"
-									],
-									"path": [
-										"v1",
-										"restaurantes"
-									],
-									"query": [
-										{
-											"key": "usuario",
-											"value": " ",
-											"disabled": true
-										}
-									]
-								}
-							},
-							"response": []
+							]
 						}
-					]
-				},
-				{
-					"name": "Deletar Login",
-					"item": [
-						{
-							"name": "Deletar login com usuário cliente",
-							"request": {
-								"method": "DELETE",
-								"header": [
-									{
-										"key": "accept",
-										"value": "application/json"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"url": {
-									"raw": "{{HOST_MS_LOGIN}}/v1/login/usuarioCliente",
-									"host": [
-										"{{HOST_MS_LOGIN}}"
-									],
-									"path": [
-										"v1",
-										"login",
-										"usuarioCliente"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Deletar login com usuário parceiro",
-							"request": {
-								"method": "DELETE",
-								"header": [
-									{
-										"key": "accept",
-										"value": "application/json"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"url": {
-									"raw": "{{HOST_MS_LOGIN}}/v1/login/usuarioParceiro",
-									"host": [
-										"{{HOST_MS_LOGIN}}"
-									],
-									"path": [
-										"v1",
-										"login",
-										"usuarioParceiro"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Tentar deletar login com usuário inexistente",
-							"request": {
-								"method": "DELETE",
-								"header": [
-									{
-										"key": "accept",
-										"value": "application/json"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"url": {
-									"raw": "{{HOST_MS_LOGIN}}/v1/login/teste123",
-									"host": [
-										"{{HOST_MS_LOGIN}}"
-									],
-									"path": [
-										"v1",
-										"login",
-										"teste123"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Tentar deletar login enviando usuário em branco",
-							"request": {
-								"method": "DELETE",
-								"header": [
-									{
-										"key": "accept",
-										"value": "application/json"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"url": {
-									"raw": "{{HOST_MS_LOGIN}}/v1/login/ ",
-									"host": [
-										"{{HOST_MS_LOGIN}}"
-									],
-									"path": [
-										"v1",
-										"login",
-										" "
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "Deletar Usuário",
-					"item": [
-						{
-							"name": "Deletar usuário cliente",
-							"request": {
-								"method": "DELETE",
-								"header": [
-									{
-										"key": "accept",
-										"value": "*/*"
-									}
-								],
-								"url": {
-									"raw": "{{HOST_MS_USUARIO}}/v1/clientes/usuarioCliente",
-									"host": [
-										"{{HOST_MS_USUARIO}}"
-									],
-									"path": [
-										"v1",
-										"clientes",
-										"usuarioCliente"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Deletar usuário parceiro",
-							"request": {
-								"method": "DELETE",
-								"header": [
-									{
-										"key": "accept",
-										"value": "*/*"
-									}
-								],
-								"url": {
-									"raw": "{{HOST_MS_USUARIO}}/v1/restaurantes/usuarioParceiro",
-									"host": [
-										"{{HOST_MS_USUARIO}}"
-									],
-									"path": [
-										"v1",
-										"restaurantes",
-										"usuarioParceiro"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Tentar deletar com usuário cliente inexistente",
-							"request": {
-								"method": "DELETE",
-								"header": [
-									{
-										"key": "accept",
-										"value": "*/*"
-									}
-								],
-								"url": {
-									"raw": "{{HOST_MS_USUARIO}}/v1/clientes/saborcaseiro",
-									"host": [
-										"{{HOST_MS_USUARIO}}"
-									],
-									"path": [
-										"v1",
-										"clientes",
-										"saborcaseiro"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Tentar deletar com usuário parceiro inexistente",
-							"request": {
-								"method": "DELETE",
-								"header": [
-									{
-										"key": "accept",
-										"value": "*/*"
-									}
-								],
-								"url": {
-									"raw": "{{HOST_MS_USUARIO}}/v1/restaurantes/saborcaseiro",
-									"host": [
-										"{{HOST_MS_USUARIO}}"
-									],
-									"path": [
-										"v1",
-										"restaurantes",
-										"saborcaseiro"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Tentar deletar com usuário cliente em branco",
-							"request": {
-								"method": "DELETE",
-								"header": [
-									{
-										"key": "accept",
-										"value": "*/*"
-									}
-								],
-								"url": {
-									"raw": "{{HOST_MS_USUARIO}}/v1/clientes/ ",
-									"host": [
-										"{{HOST_MS_USUARIO}}"
-									],
-									"path": [
-										"v1",
-										"clientes",
-										" "
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Tentar deletar com usuário parceiro em branco",
-							"request": {
-								"method": "DELETE",
-								"header": [
-									{
-										"key": "accept",
-										"value": "*/*"
-									}
-								],
-								"url": {
-									"raw": "{{HOST_MS_USUARIO}}/v1/restaurantes/",
-									"host": [
-										"{{HOST_MS_USUARIO}}"
-									],
-									"path": [
-										"v1",
-										"restaurantes",
-										""
-									]
-								}
-							},
-							"response": []
-						}
-					]
+					},
+					"response": []
 				}
 			]
 		}
